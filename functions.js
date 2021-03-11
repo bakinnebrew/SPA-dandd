@@ -24,6 +24,7 @@ function search() {
             search_arr.push(monster_name);
         }
     };
+   
     console.log(search_arr)
 
     load_search_results(search_arr)
@@ -189,7 +190,7 @@ function load_search_results(search_arr){
 };
 
 function load_dice_roller_view(){
-    document.getElementById('search-results').style.display = 'block';
+    document.getElementById('search-results').style.display = 'none';
     document.getElementById('monster-list').style.display = 'none';
     document.getElementById('single-monster').style.display = 'none';
     document.getElementById('single-equipment').style.display = 'none';
@@ -200,13 +201,23 @@ function load_dice_roller_view(){
 
 
 function die_roll(){
-    //running into cors issue
+
     let die_quantity = document.getElementById('die-quantity').value;
     let die_kind = document.getElementById('die-kind').value;
-    
-    fetch(`https://rolz.org/api/${die_quantity}d${die_kind}.json`)
-    .then(response => response.json())
-    .then(results =>{
-        console.log(results)
-    });
+    let die_modifier_id = document.getElementById('die-modifier').value;
+    let die_modifier_value = parseInt(die_modifier_id);
+
+    if(die_quantity < 1 || die_quantity % 1 != 0) {
+    let result_display = document.createElement('h6');
+    result_display.innerHTML = "Please enter a correct value"
+    document.querySelector('#roll-result').innerHTML = result_display.innerHTML;
+    }
+
+    else{
+    roll_result = (1 + Math.floor(Math.random() * Math.floor(die_kind))) * die_quantity + die_modifier_value;
+    console.log(roll_result);
+    result_display = document.createElement('h6');
+    result_display.innerHTML = "Result:" + roll_result;
+    document.querySelector('#roll-result').innerHTML = result_display.innerHTML;
+    };
 };

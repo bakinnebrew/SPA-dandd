@@ -49,10 +49,15 @@
 
         <div id="dice-roller-view">
             <form>
-                <input id="die-quantity" type="number" placeholder="1">
-                <input id="die-kind" type="number" placeholder="6">
+                Die Quantity: <input id="die-quantity" type="number" placeholder="1" style="margin-bottom: 10px;">
+                <br>
+                Die Type: <input id="die-kind" type="number" placeholder="6">
+                <br>
+                Modifier: <input id="die-modifier" type="number" pleaceholer="0">
+                <br>
                 <input type="button" value="Roll!" onclick = "return die_roll()">
             </form>
+            <div id="roll-result"></div>
         </div>
     
     </body>
