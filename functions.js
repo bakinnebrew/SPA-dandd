@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function(){
     document.querySelector('#equipment-button').addEventListener('click', load_equipment)
     document.querySelector('#monster-button').addEventListener('click', load_monsters)
     document.querySelector('#dice-roller-button').addEventListener('click', load_dice_roller_view)
-
+    
     let monst_arr = [];
  
     load_monsters();   
