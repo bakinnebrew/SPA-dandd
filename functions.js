@@ -26,11 +26,12 @@ function search() {
     };
    
     console.log(search_arr)
-
+    //function that loads the search results with the new array as the argument
     load_search_results(search_arr)
 
     };
 
+//loads all monsters by fetching data from the API
 function load_monsters(){
     const parent = document.getElementById("monster-list")
     while (parent.firstChild) {
@@ -64,7 +65,7 @@ function load_monsters(){
     });
     console.log(monst_arr)
 };
-
+//function that fetches and loads 1 monster based on the argument provided
 function load_single_monster(monst_url){
     const parent = document.getElementById("single-monster")
     while (parent.firstChild) {
@@ -97,6 +98,7 @@ function load_single_monster(monst_url){
     })
 }
 
+//similar to monsters, but this function loads a single piece of equipment, displaying the name of the equipment
 function load_single_equipment(equip_url){
     const parent = document.getElementById("single-equipment")
     while (parent.firstChild) {
@@ -121,6 +123,7 @@ function load_single_equipment(equip_url){
     })
 }
 
+//loads a list of all equipment in the API
 function load_equipment(){
 
     const parent = document.getElementById("equipment-list")
@@ -152,7 +155,7 @@ function load_equipment(){
     });
 };
 
-
+//displays a new page with results from the search 
 function load_search_results(search_arr){
 
     const parent = document.getElementById("search-results")
@@ -189,6 +192,7 @@ function load_search_results(search_arr){
     }
 };
 
+//loads a new view for rolling dice. 
 function load_dice_roller_view(){
     document.getElementById('search-results').style.display = 'none';
     document.getElementById('monster-list').style.display = 'none';
@@ -199,7 +203,7 @@ function load_dice_roller_view(){
     document.querySelector('form').style.display = 'none';
 }
 
-
+//allows user to simulate rolling dice. Quantity of dice is provided, as well as value, and any additional modifiers
 function die_roll(){
 
     let die_quantity = document.getElementById('die-quantity').value;
